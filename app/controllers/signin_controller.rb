@@ -4,6 +4,11 @@ class SigninController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
 
+    if !user 
+      not_found
+      return
+    end
+
     if user.authenticate(params[:password])
       payload = { user_id: user.id }
       session = JWTSessions::Session.new(payload: payload, refresh_by_access_allowed: true)

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_03_15_074552) do
     t.string "description"
     t.date "due_date"
     t.string "priority"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
